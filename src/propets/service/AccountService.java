@@ -18,6 +18,7 @@ import propets.dto.UserExistsException;
 import propets.dto.UserRegisterDto;
 import propets.dto.WrongPasswordException;
 import propets.entities.User;
+import propets.security.TokenNotCorrespondsLoginException;
 
 @Service
 public class AccountService implements IAccountService {
@@ -73,7 +74,7 @@ public class AccountService implements IAccountService {
 	public UserDto getUserDataWithActivities(UserDetails userDetails, String login, HttpServletResponse response) throws IOException {
 		if (!login.equals(userDetails.getUsername())) {
 			System.out.println("userDetails " + userDetails.getUsername());
-			response.sendError(400, "Token not corresponds to login");
+			throw new TokenNotCorrespondsLoginException("Token not corresponds to login");
 		}
 		User user = repository.findById(login).orElse(null);
 		if (user != null) {
