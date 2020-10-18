@@ -222,7 +222,7 @@ public class AuthenticationController {
 					/*RequestEntity<?> requestEntity = new RequestEntity<String>(responseHeaders, HttpMethod.DELETE,
 							new URI("http://localhost:8090/propets-app.herokuapp.com/message/" + post));*/
 					RequestEntity<?> requestEntity = new RequestEntity<String>(responseHeaders, HttpMethod.DELETE,
-							new URI("https://message-service.herokuapp.com/message/en/v1/" + post));
+							new URI("https://service-messages.herokuapp.com/message/en/v1/" + post));
 					System.out.println("request Entity message " + requestEntity);
 					RestTemplate restTemplate = new RestTemplate();
 					ResponseEntity<Post> responseEntity = restTemplate.exchange(requestEntity, Post.class);
