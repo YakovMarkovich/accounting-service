@@ -50,7 +50,7 @@ import propets.service.IAccountService;
 
 public class AuthenticationController {
 
-	// static final String REST_URL = "/propets-app.herokuapp.com/account";
+	 //static final String REST_URL = "/propets-app.herokuapp.com/account";
 	static final String REST_URL = "/account/en/v1";
 	Authentication authentication;
 
@@ -102,6 +102,7 @@ public class AuthenticationController {
 		try {
 			System.out.println("I generate jwt");
 			final String jwt = jwtTokenUtil.generateToken((UserDetails) authentication.getPrincipal());
+			System.out.println(jwt);
 			return ResponseEntity.ok().header("X-Token", jwt).body(accountService
 					.getUserData((UserDetails) authentication.getPrincipal(), authRequest.getName(), response));
 		} catch (Exception e) {

@@ -110,7 +110,7 @@ public class JWTFilter extends OncePerRequestFilter {
 	private boolean checkForAdminActions(String path, String method) {
 		System.out.println(path + " path");
 		//boolean res = path.matches("/propets-app.herokuapp.com/account/.*/role/.*")
-		//		|| 
+		//	|| 
 		//		(path.matches("/propets-app.herokuapp.com/account/.*/block/.*") && method.equalsIgnoreCase("PUT"));
 		boolean res = path.matches("/account/en/v1/.*/role/.*")
 						|| 
@@ -122,9 +122,9 @@ public class JWTFilter extends OncePerRequestFilter {
 	}
 
 	private boolean checkEndpoint(String path, String method) {
-		//boolean res = !path.matches("/propets-app.herokuapp.com/account/authenticate")
-		//		&& !path.matches("/propets-app.herokuapp.com/account/register");
-		//return res;
+		/*boolean res = !path.matches("/propets-app.herokuapp.com/account/authenticate")
+				&& !path.matches("/propets-app.herokuapp.com/account/register");
+		return res;*/
 		boolean res = !path.matches("/account/en/v1/authenticate")
 						&& !path.matches("/account/en/v1/register");
 				return res;
