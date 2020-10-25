@@ -26,6 +26,10 @@ public class CorsFilter implements Filter {
 		response.addHeader("Access-Control-Allow-Methods", "GET, OPTIONS, POST, PUT, DELETE");
 		response.addHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Token");		
 		response.addHeader("Access-Control-Expose-Headers", "*");	
+		if (request.getMethod().equals("OPTIONS")) {
+			response.setStatus(HttpServletResponse.SC_ACCEPTED);
+			return;
+		}
 		chain.doFilter(request, response);
 	}
 
